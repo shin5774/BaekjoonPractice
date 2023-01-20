@@ -3,15 +3,16 @@
 using namespace std;
 
 int main() {
-    int max = 0;
-    int csr, num;
-    for (int i = 0; i < 9; i++) {
-        cin >> num;
-        if (max < num) {
-            max = num;
-            csr = i + 1;
+    int ans, ans_idx = 1;
+    cin >> ans;
+
+    for (int i = 2; i <= 9; i++) {
+        int input;
+        cin >> input;
+        if (input > ans) {
+            ans = input;
+            ans_idx = i;
         }
     }
-
-    cout << max << endl << csr;
+    cout << ans << '\n' << ans_idx;
 }

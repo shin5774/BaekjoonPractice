@@ -1,24 +1,25 @@
+#include <algorithm>
 #include <iostream>
 
 using namespace std;
 
 int main() {
-    int num;
-    int max = 0;
-    double sum = 0;
+    int n, max;
+    float sum = 0;
+    cin >> n;
+    float *arr = new float[n];
 
-    cout << fixed;
-    cout.precision(2);
-    cin >> num;
-    double *sub = new double[num];
-    for (int i = 0; i < num; i++) {
-        cin >> sub[i];
-        if (sub[i] > max)
-            max = sub[i];
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
     }
-    for (int i = 0; i < num; i++) {
-        sub[i] = (sub[i] / max * 100);
-        sum += sub[i];
+
+    sort(arr, arr + n);
+    max = arr[n - 1];
+
+    for (int i = 0; i < n; i++) {
+        arr[i] = arr[i] / max * 100;
+        sum += arr[i];
     }
-    cout << sum / num;
+
+    cout << sum / n;
 }
