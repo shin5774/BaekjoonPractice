@@ -2,24 +2,27 @@
 
 using namespace std;
 
-int main(){
-    int n;
-    cin>>n;
-
-    while(n--){
-        string input;
-        int ans = 0, point = 1;
-        cin >> input;
-
-        for (int i = 0; i < input.length();i++){
-            if(input[i]=='O'){
-                ans += point;
-                point++;
-            }
-            else{
-                point = 1;
+int main() {
+    int num;
+    cin >> num;
+    int *ans = new int[num];
+    for (int i = 0; i < num; i++) {
+        string problem;
+        int point = 0;
+        int cont = 0;
+        cin >> problem;
+        for (int j = 0; j < problem.length(); j++) {
+            if (problem.at(j) == 'O') {
+                point = point + 1 + cont;
+                cont++;
+            } else {
+                cont = 0;
             }
         }
-        cout << ans << '\n';
+        ans[i] = point;
+    }
+
+    for (int i = 0; i < num; i++) {
+        cout << ans[i] << '\n';
     }
 }

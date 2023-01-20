@@ -3,15 +3,18 @@
 using namespace std;
 
 int main() {
-    int n, min = 1000001, max = -1000001;
-    cin >> n;
-    for (int i = 0; i < n; i++) {
-        int input;
+    int num, input;
+    int max = -1000000;
+    int min = 1000000;
+    cin >> num;
+    for (int i = 0; i < num; i++) {
         cin >> input;
-        if (input > max)
+        if (max < input) {
             max = input;
-        if (input < min)
+        }
+        if (min > input) {
             min = input;
+        }
     }
     cout << min << " " << max;
 }

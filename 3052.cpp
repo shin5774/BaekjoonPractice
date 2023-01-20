@@ -2,21 +2,20 @@
 
 using namespace std;
 
-bool arr[42];
-
 int main() {
-    int ans = 0;
-
-    for (int i = 0; i < 10;i++){
-        int input;
-        cin>>input;
-        arr[input % 42] = true;
+    int input;
+    int remain[42] = {
+        0,
+    };
+    int num = 0;
+    for (int i = 0; i < 10; i++) {
+        cin >> input;
+        int index = input % 42;
+        if (!remain[index]) {
+            remain[index]++;
+            num++;
+        }
     }
 
-    for (int i = 0; i < 42;i++){
-        if(arr[i])
-            ans++;
-    }
-
-    cout << ans;
+    cout << num;
 }
